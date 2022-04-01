@@ -1,4 +1,4 @@
-# face_mask_detection_updated
+# face_mask_detection
 
 A new Flutter project.
 
