@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'dart:io';
 import 'package:face_mask_detection_updated/constants.dart';
 import 'package:face_mask_detection_updated/live_capture_back_cam.dart';
@@ -8,6 +10,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -84,12 +88,12 @@ class _HomePageState extends State<HomePage> {
         ),
         body: ListView(
           children: [
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             Center(
               child: Container(
                 height: 140,
                 width: 140,
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(30),
                   child: Image.asset(
@@ -107,100 +111,98 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            SizedBox(height: 25),
-            Container(
-              child: Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(left: 40, right: 40),
-                    height: kHeightButton,
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: kButtonColor,
-                        shape: StadiumBorder(),
-                      ),
-                      child: Text('Capture', style: kButtonTextStyle),
-                      onPressed: () {
-                        _pickimageCamera();
-                      },
+            const SizedBox(height: 25),
+            Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(left: 40, right: 40),
+                  height: kHeightButton,
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: kButtonColor,
+                      shape: const StadiumBorder(),
                     ),
+                    child: Text('Capture', style: kButtonTextStyle),
+                    onPressed: () {
+                      _pickimageCamera();
+                    },
                   ),
-                  SizedBox(height: 10),
-                  Container(
-                    padding: EdgeInsets.only(left: 40, right: 40),
-                    height: 50,
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: kButtonColor,
-                        shape: StadiumBorder(),
-                      ),
-                      child: Text('Gallery', style: kButtonTextStyle),
-                      onPressed: () {
-                        _pickimageGallery();
-                      },
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  padding: const EdgeInsets.only(left: 40, right: 40),
+                  height: 50,
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: kButtonColor,
+                      shape: const StadiumBorder(),
                     ),
+                    child: Text('Gallery', style: kButtonTextStyle),
+                    onPressed: () {
+                      _pickimageGallery();
+                    },
                   ),
-                  SizedBox(height: 10),
-                  Container(
-                    padding: EdgeInsets.only(left: 40, right: 40),
-                    height: 50,
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: kButtonColor,
-                        shape: StadiumBorder(),
-                      ),
-                      child: Text(
-                        'Live Capture Back Camera',
-                        style: kButtonTextStyle,
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LiveCaptureBack(),
-                          ),
-                        );
-                      },
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  padding: const EdgeInsets.only(left: 40, right: 40),
+                  height: 50,
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: kButtonColor,
+                      shape: const StadiumBorder(),
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  Container(
-                    padding: EdgeInsets.only(left: 40, right: 40),
-                    height: 50,
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: kButtonColor,
-                        shape: StadiumBorder(),
-                      ),
-                      child: Text(
-                        'Live Capture Front Camera',
-                        style: kButtonTextStyle,
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LiveCaptureFront(),
-                          ),
-                        );
-                      },
+                    child: Text(
+                      'Live Capture Back Camera',
+                      style: kButtonTextStyle,
                     ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LiveCaptureBack(),
+                        ),
+                      );
+                    },
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  padding: const EdgeInsets.only(left: 40, right: 40),
+                  height: 50,
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: kButtonColor,
+                      shape: const StadiumBorder(),
+                    ),
+                    child: Text(
+                      'Live Capture Front Camera',
+                      style: kButtonTextStyle,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LiveCaptureFront(),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
             loading != true
                 ? Container(
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     child: Column(
                       children: [
                         Container(
                           height: 220,
-                          padding: EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(15),
                           child: Image.file(_image),
                         ),
                         _output != null
@@ -208,11 +210,11 @@ class _HomePageState extends State<HomePage> {
                                 (_output[0]['label']).toString().substring(2),
                                 style: kButtonTextStyle,
                               )
-                            : Text(''),
+                            : const Text(''),
                         (_output[0]['label']).toString().substring(2) ==
                                 'No Mask'
                             ? playSound()
-                            : SizedBox(
+                            : const SizedBox(
                                 height: 0,
                               ),
                         _output != null
@@ -223,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                                         .toString(),
                                 style: kButtonTextStyle,
                               )
-                            : Text(''),
+                            : const Text(''),
                       ],
                     ),
                   )

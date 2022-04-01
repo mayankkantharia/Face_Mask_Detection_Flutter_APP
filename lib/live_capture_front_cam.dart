@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:tflite/tflite.dart';
@@ -5,6 +7,8 @@ import 'constants.dart';
 import 'main.dart';
 
 class LiveCaptureFront extends StatefulWidget {
+  const LiveCaptureFront({Key? key}) : super(key: key);
+
   @override
   _LiveCaptureFrontState createState() => _LiveCaptureFrontState();
 }
@@ -50,7 +54,6 @@ class _LiveCaptureFrontState extends State<LiveCaptureFront> {
       recognitions?.forEach((element) {
         setState(() {
           result = element["label"].toString().substring(1);
-          print(result);
         });
       });
     }
@@ -75,7 +78,7 @@ class _LiveCaptureFrontState extends State<LiveCaptureFront> {
         ),
         body: Column(
           children: [
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height - 150,
               width: MediaQuery.of(context).size.width,
               child: !cameraController.value.isInitialized
@@ -91,7 +94,10 @@ class _LiveCaptureFrontState extends State<LiveCaptureFront> {
                 children: [
                   Text(
                     result,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                    ),
                   ),
                 ],
               ),

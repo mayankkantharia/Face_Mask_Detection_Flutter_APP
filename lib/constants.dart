@@ -16,7 +16,7 @@ final TextStyle kAppBarTextStyle = GoogleFonts.roboto(
 playSound() {
   final player = AudioCache();
   player.play('Mask Audio.mp3');
-  return SizedBox(
+  return const SizedBox(
     height: 0,
   );
 }
